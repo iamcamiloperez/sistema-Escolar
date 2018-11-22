@@ -1,0 +1,11 @@
+E:\USUARIO ccperez\Documents\projects\ColegioCore\bin\Debug\netcoreapp2.1\ColegioCore.deps.json
+E:\USUARIO ccperez\Documents\projects\ColegioCore\bin\Debug\netcoreapp2.1\ColegioCore.runtimeconfig.json
+E:\USUARIO ccperez\Documents\projects\ColegioCore\bin\Debug\netcoreapp2.1\ColegioCore.runtimeconfig.dev.json
+E:\USUARIO ccperez\Documents\projects\ColegioCore\bin\Debug\netcoreapp2.1\ColegioCore.dll
+E:\USUARIO ccperez\Documents\projects\ColegioCore\bin\Debug\netcoreapp2.1\ColegioCore.pdb
+E:\USUARIO ccperez\Documents\projects\ColegioCore\obj\Debug\netcoreapp2.1\ColegioCore.csprojAssemblyReference.cache
+E:\USUARIO ccperez\Documents\projects\ColegioCore\obj\Debug\netcoreapp2.1\ColegioCore.csproj.CoreCompileInputs.cache
+E:\USUARIO ccperez\Documents\projects\ColegioCore\obj\Debug\netcoreapp2.1\ColegioCore.AssemblyInfoInputs.cache
+E:\USUARIO ccperez\Documents\projects\ColegioCore\obj\Debug\netcoreapp2.1\ColegioCore.AssemblyInfo.cs
+E:\USUARIO ccperez\Documents\projects\ColegioCore\obj\Debug\netcoreapp2.1\ColegioCore.dll
+E:\USUARIO ccperez\Documents\projects\ColegioCore\obj\Debug\netcoreapp2.1\ColegioCore.pdb

@@ -1,0 +1,11 @@
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\bin\Debug\netcoreapp2.1\Etapa1.deps.json
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\bin\Debug\netcoreapp2.1\Etapa1.runtimeconfig.json
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\bin\Debug\netcoreapp2.1\Etapa1.runtimeconfig.dev.json
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\bin\Debug\netcoreapp2.1\Etapa1.dll
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\bin\Debug\netcoreapp2.1\Etapa1.pdb
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\obj\Debug\netcoreapp2.1\Etapa1.csprojAssemblyReference.cache
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\obj\Debug\netcoreapp2.1\Etapa1.csproj.CoreCompileInputs.cache
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\obj\Debug\netcoreapp2.1\Etapa1.AssemblyInfoInputs.cache
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\obj\Debug\netcoreapp2.1\Etapa1.AssemblyInfo.cs
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\obj\Debug\netcoreapp2.1\Etapa1.dll
+E:\USUARIO ccperez\Documents\projects\ColegioCore\Etapa1\obj\Debug\netcoreapp2.1\Etapa1.pdb

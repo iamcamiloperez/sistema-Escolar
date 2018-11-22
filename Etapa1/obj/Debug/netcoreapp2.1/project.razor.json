@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "e:\\USUARIO ccperez\\Documents\\projects\\ColegioCore\\Etapa1\\Etapa1.csproj",
+  "TargetFramework": "netcoreapp2.1",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
