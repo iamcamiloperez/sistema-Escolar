@@ -13,6 +13,7 @@ namespace ColegioCore.Entidades
         {            
         }
 
+        #region Inicializar
         public void inicializar()
         {
             Colegio = new Colegio("One School", 2012, TiposColegio.Primaria,
@@ -22,9 +23,10 @@ namespace ColegioCore.Entidades
             cargarCursos();
             cargarAsignaturas();
             generarEvaluaciones();                        
-
         }
+#endregion
 
+        #region cargas
         private void cargarAsignaturas()
         {
             foreach(var curso in Colegio.Cursos)
@@ -109,8 +111,22 @@ namespace ColegioCore.Entidades
             // //Expresion Lambda
             // colegio.Cursos.RemoveAll((cur) => cur.Nombre == "502");
         }
+#endregion
+        
+        #region listas
 
-        public List<ObjetoColegioBase> GetObjetosColegio()
+        public Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>> GetDiccionarioObjetos(){
+            
+            var dicc = new Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>>();
+            
+            dicc.Add(LlaveDiccionario.COLEGIO, new[]{Colegio});
+            dicc.Add(LlaveDiccionario.CURSO, Colegio.Cursos.Cast<ObjetoColegioBase>());            
+
+            return dicc;
+            
+        }
+
+        public IReadOnlyList<ObjetoColegioBase> GetObjetosColegio()
         {
             var listaObj = new List<ObjetoColegioBase>();
             listaObj.Add(Colegio);
@@ -125,7 +141,59 @@ namespace ColegioCore.Entidades
                     listaObj.AddRange(est.Evaluaciones);
                 }
             }
-            return listaObj;
+            return listaObj.AsReadOnly();
         }
+
+
+        public IReadOnlyList<ObjetoColegioBase> GetObjetosColegio(
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traerAsignaturas = true,
+            bool traerCursos = true
+            ){
+                return GetObjetosColegio(out int dummy,out dummy,out dummy,out dummy );
+            }
+        
+
+        public IReadOnlyList<ObjetoColegioBase> GetObjetosColegio(
+            out int conteoEval,
+            out int conteoCur,
+            out int conteoAsig,
+            out int conteoAlum,
+            bool traeEvaluaciones = true,
+            bool traeAlumnos = true,
+            bool traerAsignaturas = true,
+            bool traerCursos = true
+            )
+        {
+            conteoEval = conteoCur = conteoAsig = conteoAlum = 0;
+            var listaObj = new List<ObjetoColegioBase>();
+            listaObj.Add(Colegio);
+            if(traerCursos){
+                listaObj.AddRange(Colegio.Cursos);                
+            }
+            conteoCur += Colegio.Cursos.Count;
+            foreach(var curso in Colegio.Cursos)
+            {
+                conteoAsig += curso.Asignaturas.Count;
+                conteoAlum += curso.Alumnos.Count;
+                if(traerAsignaturas){
+                    listaObj.AddRange(curso.Asignaturas);
+                }                
+                if(traeAlumnos){
+                    listaObj.AddRange(curso.Alumnos);
+                }
+                if(traeEvaluaciones){
+                    foreach(var est in curso.Alumnos)
+                    {
+                        listaObj.AddRange(est.Evaluaciones);
+                        conteoEval += est.Evaluaciones.Count;
+                    }
+                }                
+            }
+            return listaObj.AsReadOnly();
+        }
+
+        #endregion
     }
 }

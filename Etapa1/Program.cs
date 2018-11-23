@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ColegioCore.Entidades;
 using ColegioCore.Util;
 using static System.Console;
@@ -12,12 +13,17 @@ namespace ColegioCore
         {
             var engine = new ColegioEngine();
             engine.inicializar();
-            Printer.EscribirTitulo(engine.Colegio.Nombre);
+            Printer.EscribirTitulo(engine.Colegio.Nombre);            
             imprimirCursos(engine.Colegio);
             Printer.Timbrar(veces:1, tiempo:200);
-
-            var listaObjetos = engine.GetObjetosColegio();
-
+            
+            /*
+            //Consulta por interface
+            var listaILugar = from obj in listaObjetos
+                            where obj is iLugar
+                            select (iLugar) obj;
+             */                            
+            //engine.Colegio.LimpiarLugar();
             
         }
         
