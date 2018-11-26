@@ -9,6 +9,10 @@ namespace ColegioCore.Entidades
         public float Nota { get; set; }
         public Alumno Estudiante {get; set; }
         public Asignatura Materia { get; set; }
+
+        public Evaluacion(){
+            
+        }
         public Evaluacion(string nombre, float nota, Alumno estudiante, Asignatura materia) => (Nombre, Nota, Estudiante, Materia ) = (nombre, nota, estudiante, materia);
 
         public override string ToString()

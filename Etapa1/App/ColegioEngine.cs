@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ColegioCore.Entidades;
+using ColegioCore.Util;
 using static System.Console;
 
-namespace ColegioCore.Entidades
+namespace ColegioCore.App
 {
     public sealed class ColegioEngine
     {
@@ -115,15 +117,72 @@ namespace ColegioCore.Entidades
         
         #region listas
 
+        //Metodo para retornar todos los objetos en un diccionario
         public Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>> GetDiccionarioObjetos(){
             
+            //creación del diccionario
             var dicc = new Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>>();
             
             dicc.Add(LlaveDiccionario.COLEGIO, new[]{Colegio});
-            dicc.Add(LlaveDiccionario.CURSO, Colegio.Cursos.Cast<ObjetoColegioBase>());            
+            dicc.Add(LlaveDiccionario.CURSO, Colegio.Cursos.Cast<ObjetoColegioBase>());
+            var listaEstTemporal = new List<Alumno>();
+            var listaAsigTemporal = new List<Asignatura>();
+            var listaEvTemporal = new List<Evaluacion>();
+
+            foreach(var cur in Colegio.Cursos){
+                listaAsigTemporal.AddRange(cur.Asignaturas);
+                listaEstTemporal.AddRange(cur.Alumnos);                                                
+                foreach (var est in cur.Alumnos)
+                {
+                    listaEvTemporal.AddRange(est.Evaluaciones);
+                }                
+            }
+            dicc.Add(LlaveDiccionario.ASIGNATURA, listaAsigTemporal.Cast<ObjetoColegioBase>());
+            dicc.Add(LlaveDiccionario.ALUMNO, listaEstTemporal.Cast<ObjetoColegioBase>());
+            dicc.Add(LlaveDiccionario.EVALUACION, listaEvTemporal.Cast<ObjetoColegioBase>());
 
             return dicc;
             
+        }
+
+        public void imprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>> dicc, bool eval = false)
+        {
+            foreach (var item in dicc)
+            {
+                Printer.EscribirTitulo(item.Key.ToString());
+                foreach (var val in item.Value)
+                {
+                    switch (item.Key)
+                    {
+                        case LlaveDiccionario.EVALUACION: 
+                            if(eval)
+                            {
+                                Console.WriteLine($"Evaluación: {val}");
+                            }
+                        break;
+                        case LlaveDiccionario.ALUMNO:
+                            Console.WriteLine($"Estudiante: {val}");
+                        break;
+                        case LlaveDiccionario.CURSO:
+                            /*
+                            var curtmp = val as Curso;
+                            if(curtmp != null){ ... }
+                             */
+
+                            Console.WriteLine($"Curso: {val} - Catidad:{((Curso)val).Alumnos.Count}");
+                        break;
+                        case LlaveDiccionario.ASIGNATURA:
+                            Console.WriteLine($"Materia: {val}");
+                        break;
+                        case LlaveDiccionario.COLEGIO:
+                            Console.WriteLine($"Colegio: {val}");
+                        break;
+                        default:
+
+                        break;
+                    }                    
+                }
+            }
         }
 
         public IReadOnlyList<ObjetoColegioBase> GetObjetosColegio()
