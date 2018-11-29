@@ -145,7 +145,7 @@ namespace ColegioCore.App
             
         }
 
-        public void imprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>> dicc, bool eval = false)
+        public void imprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<ObjetoColegioBase>> dicc)
         {
             foreach (var item in dicc)
             {
@@ -155,20 +155,12 @@ namespace ColegioCore.App
                     switch (item.Key)
                     {
                         case LlaveDiccionario.EVALUACION: 
-                            if(eval)
-                            {
-                                Console.WriteLine($"Evaluación: {val}");
-                            }
+                            //Console.WriteLine($"Evaluación: {val}");
                         break;
                         case LlaveDiccionario.ALUMNO:
                             Console.WriteLine($"Estudiante: {val}");
                         break;
                         case LlaveDiccionario.CURSO:
-                            /*
-                            var curtmp = val as Curso;
-                            if(curtmp != null){ ... }
-                             */
-
                             Console.WriteLine($"Curso: {val} - Catidad:{((Curso)val).Alumnos.Count}");
                         break;
                         case LlaveDiccionario.ASIGNATURA:
